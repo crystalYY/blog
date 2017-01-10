@@ -34,7 +34,11 @@ key: value; 冒号之后有空格
 字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’
 文章包含多个标签
 123ta">
-<meta property="og:updated_time" content="2017-01-10T08:55:22.664Z">
+<meta property="og:image" content="http://tinyfirefly.com/example.jpg">
+<meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg">
+<meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg">
+<meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg">
+<meta property="og:updated_time" content="2017-01-10T09:15:58.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo与github page联合建站过程中踩过的坑">
 <meta name="twitter:description" content="截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。
@@ -48,6 +52,7 @@ key: value; 冒号之后有空格
 字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’
 文章包含多个标签
 123ta">
+<meta name="twitter:image" content="http://tinyfirefly.com/example.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Tully" type="application/atom+xml">
   
@@ -235,6 +240,16 @@ key: value; 冒号之后有空格
 </li>
 </ol>
 <p>具体YAML语法请看<a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt</a></p>
+<a id="more"></a>
+<p>-<strong>hexo中相对路径引用的标签插件</strong></p>
+<p>当时有疑问的主要是<code></code>标签插件,不知道到底应该把图片放在哪里，路径到底是以哪个为根路径。</p>
+<p>官方文档中的解释如下</p>
+<blockquote>
+<p>当你打开文章资源文件夹功能后，你把一个 example.jpg 图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 <img src="/example.jpg" alt=""> ，它将 不会 出现在首页上。（但是它会在文章中按你期待的方式工作）<br>正确的引用图片方式是使用下列的标签插件而不是 markdown ：<br><code><img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg" alt="This is an example image" title="This is an example image"></code><br>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
+</blockquote>
+<p>现在再看其实很清晰，文档甚至怕使用者看不懂图片的名称都写出来了，然而还是有我这种人不仔细看没看懂。。</p>
+<p>资源文件夹指的是当你把资源文件管理功能打开后，即设置<br><figure class="highlight plain"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">post_asset_folder: true</div><div class="line"></div></pre></td></tr></table></figure><br>每次你通过<code>hexo new article-title</code>命令新建文章时，相对应的会生成一个和文章名称相同的文件夹，这个文件夹就是所谓的<strong>资源文件夹</strong>，而根路径也就是这个文件夹。比如<br><code><img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg" alt="This is an example image" title="This is an example image"></code></p>
+<p>这个<code>example.jpg</code>就是直接放在资源文件夹里<br><img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example.jpg" alt="This is an example image" title="This is an example image"></p>
 
       
 
