@@ -26,7 +26,7 @@ tags:
 
 <!--more-->
 
--**hexo中相对路径引用的标签插件**
+- **hexo中相对路径引用的标签插件**
 
 当时有疑问的主要是 `{ % asset_img slug [title] %}`
 标签插件,不知道到底应该把图片放在哪里，路径到底是以哪个为根路径。
@@ -52,3 +52,25 @@ post_asset_folder: true
 这个`example.jpg`就是直接放在资源文件夹里
 
 {% asset_img example1.jpg This is an example image %}
+
+- **github上出现灰色文件**
+
+对于这个问题，我找到了原因但依然没有很好地解决办法。
+
+问题产生的原因是由于我作死的直接从原作者的github上pull下来了yilia主题，并且pull的当前文件夹就是hexo的themes文件夹，导致yilia文件夹本身就是一个本身已经初始化并且有远成仓库的本地Git仓库。
+
+用`git remote show origin`来查看远程仓库信息，也是yilia作者的Git远程仓库地址。虽然我后来又在blog文件夹（包含yilia文件夹）init了一个Git本地仓库，并和我github上的远程仓库相连，但我依然得不到yilia文件夹的编辑权，除非到yilia文件夹下，但就算你此时push也是push到yilia作者的仓库里。
+
+查了一些资料，说是yilia这种情况就属于blog的子模块了，子模块是什么鬼，第一次听说。
+[子模块资料](https://segmentfault.com/a/1190000003076028)
+但我在yilia文件夹里搜索了一下，并没有.gitmodules和 pod-library 文件，所以这应该不是子模块。
+
+那是什么，我又找了一通资料。觉得主要原因是yilia本身也是一个初始化的Git仓库。那取消初始化会不会就正常了，可以执行`git rm rf .git `或直接手动删除.git文件。发现yilia文件确实和blog保持了一致，远程仓库和本地分支都一致，但奈何github上依然是灰色文件不能操作。。
+
+**好吧，最后我无奈的把yilia先复制到桌面上，然后`add commit push`，再把桌面上的yilia恭恭敬敬的又请回了themes文件夹，接着`add commit push`，再去看github，竟然可操作了。。。**
+
+![success](http://img.blog.csdn.net/20170110155234483?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjcwODgyNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+**简单粗暴但有效。**
+
+最后提醒一句：再下载主题的时候别再为了一时方便直接pull主题到博客本身的themes文件夹下了，后续造成的不方便不知道要花费多少时间。当然如果你不打算把hexo的所有配置文件都上传到GitHub上，那倒没太大问题，不过万一哪天你电脑突然挂了呢。。。还得重新再搭建一次，所以还是尽早备份吧
