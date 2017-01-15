@@ -35,7 +35,8 @@ key: value; 冒号之后有空格
 文章包含多个标签
 123ta">
 <meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example1.jpg">
-<meta property="og:updated_time" content="2017-01-10T12:17:14.999Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20170110155234483?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjcwODgyNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-01-15T03:18:45.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo与github page联合建站过程中踩过的坑">
 <meta name="twitter:description" content="截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。
@@ -238,7 +239,9 @@ key: value; 冒号之后有空格
 </ol>
 <p>具体YAML语法请看<a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt</a></p>
 <a id="more"></a>
-<p>-<strong>hexo中相对路径引用的标签插件</strong></p>
+<ul>
+<li><strong>hexo中相对路径引用的标签插件</strong></li>
+</ul>
 <p>当时有疑问的主要是 <code>{ % asset_img slug [title] %}</code><br>标签插件,不知道到底应该把图片放在哪里，路径到底是以哪个为根路径。</p>
 <p>官方文档中的解释如下</p>
 <blockquote>
@@ -247,6 +250,19 @@ key: value; 冒号之后有空格
 <p>现在再看其实很清晰，文档甚至怕使用者看不懂图片的名称都写出来了，然而还是有我这种人不仔细看没看懂。。</p>
 <p>资源文件夹指的是当你把资源文件管理功能打开后，即设置<br><figure class="highlight plain"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">post_asset_folder: true</div><div class="line"></div></pre></td></tr></table></figure><br>每次你通过<code>hexo new article-title</code>命令新建文章时，相对应的会生成一个和文章名称相同的文件夹，这个文件夹就是所谓的<strong>资源文件夹</strong>，而根路径也就是这个文件夹。比如<br> <code>{ % asset_img example.jpg This is an example image %}</code><br>这个<code>example.jpg</code>就是直接放在资源文件夹里</p>
 <img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example1.jpg" alt="This is an example image" title="This is an example image">
+<ul>
+<li><strong>github上出现灰色文件</strong></li>
+</ul>
+<p>对于这个问题，我找到了原因但依然没有很好地解决办法。</p>
+<p>问题产生的原因是由于我作死的直接从原作者的github上pull下来了yilia主题，并且pull的当前文件夹就是hexo的themes文件夹，导致yilia文件夹本身就是一个本身已经初始化并且有远成仓库的本地Git仓库。</p>
+<p>用<code>git remote show origin</code>来查看远程仓库信息，也是yilia作者的Git远程仓库地址。虽然我后来又在blog文件夹（包含yilia文件夹）init了一个Git本地仓库，并和我github上的远程仓库相连，但我依然得不到yilia文件夹的编辑权，除非到yilia文件夹下，但就算你此时push也是push到yilia作者的仓库里。</p>
+<p>查了一些资料，说是yilia这种情况就属于blog的子模块了，子模块是什么鬼，第一次听说。<br><a href="https://segmentfault.com/a/1190000003076028" target="_blank" rel="external">子模块资料</a><br>但我在yilia文件夹里搜索了一下，并没有.gitmodules和 pod-library 文件，所以这应该不是子模块。</p>
+<p>那是什么，我又找了一通资料。觉得主要原因是yilia本身也是一个初始化的Git仓库。那取消初始化会不会就正常了，可以执行<code>git rm rf .git</code>或直接手动删除.git文件。发现yilia文件确实和blog保持了一致，远程仓库和本地分支都一致，但奈何github上依然是灰色文件不能操作。。</p>
+<p><strong>好吧，最后我无奈的把yilia先复制到桌面上，然后<code>add commit push</code>，再把桌面上的yilia恭恭敬敬的又请回了themes文件夹，接着<code>add commit push</code>，再去看github，竟然可操作了。。。</strong></p>
+<p><img src="http://img.blog.csdn.net/20170110155234483?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjcwODgyNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="success"></p>
+<p><strong>简单粗暴但有效。</strong></p>
+<p>最后提醒一句：再下载主题的时候别再为了一时方便直接pull主题到博客本身的themes文件夹下了，后续造成的不方便不知道要花费多少时间。当然如果你不打算把hexo的所有配置文件都上传到GitHub上，那倒没太大问题，不过万一哪天你电脑突然挂了呢。。。还得重新再搭建一次，所以还是尽早备份吧</p>
+
       
 
       
