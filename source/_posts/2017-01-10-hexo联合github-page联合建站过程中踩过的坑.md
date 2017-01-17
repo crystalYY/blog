@@ -7,7 +7,7 @@ tags:
 ---
 截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿--完全手写一个blog还有很长的路要走。
 
-- **YAML语法**
+### YAML语法
 	
 之前没写过配置文件，这是第一次接触YAML，确实简洁强大。
 
@@ -26,7 +26,7 @@ tags:
 
 <!--more-->
 
-- **hexo中相对路径引用的标签插件**
+### hexo中相对路径引用的标签插件
 
 当时有疑问的主要是 `{ % asset_img slug [title] %}`
 标签插件,不知道到底应该把图片放在哪里，路径到底是以哪个为根路径。
@@ -53,7 +53,8 @@ post_asset_folder: true
 
 {% asset_img example1.jpg This is an example image %}
 
-- **github上出现灰色文件**
+
+### github上出现灰色文件
 
 对于这个问题，我找到了原因但依然没有很好地解决办法。
 
@@ -69,7 +70,7 @@ post_asset_folder: true
 
 **好吧，最后我无奈的把yilia先复制到桌面上，然后`add commit push`，再把桌面上的yilia恭恭敬敬的又请回了themes文件夹，接着`add commit push`，再去看github，竟然可操作了。。。**
 
-![success](http://img.blog.csdn.net/20170110155234483?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjcwODgyNTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+{% asset_img github.png 灰色文件可处理结果 %}
 
 **简单粗暴但有效。**
 
