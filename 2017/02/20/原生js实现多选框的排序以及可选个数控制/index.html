@@ -6,42 +6,51 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tinyfirefly.com">
-  <title>hexo与github page联合建站过程中踩过的坑 | Blog of Tully</title>
+  <title>原生js实现多选框的排序以及可选个数控制 | Blog of Tully</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。
-YAML语法之前没写过配置文件，这是第一次接触YAML，确实简洁强大。
+  <meta name="description" content="展示页面： http://codepen.io/crystalYY/pen/ggNjQR
 
-key: value; 冒号之后有空格
-字符串默认不使用引号。如：title: 欢迎来到我的博客
-字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’
-文章包含多个标签
-123tags:">
+主要效果：
+
+最多可选择三项，用户尝试选择第四项时，多选框变为disabled禁用状态
+按照用户点击的顺序实时给出已选择的多选框所对应的序号
+左下方实时提醒用户当前已选择了几项
+
+
+实现思路：
+
+设置一个用来存放已经选定的多选框，即obj.checked=true的value的数组checkedArray">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo与github page联合建站过程中踩过的坑">
-<meta property="og:url" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/index.html">
+<meta property="og:title" content="原生js实现多选框的排序以及可选个数控制">
+<meta property="og:url" content="http://tinyfirefly.com/2017/02/20/原生js实现多选框的排序以及可选个数控制/index.html">
 <meta property="og:site_name" content="Blog of Tully">
-<meta property="og:description" content="截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。
-YAML语法之前没写过配置文件，这是第一次接触YAML，确实简洁强大。
+<meta property="og:description" content="展示页面： http://codepen.io/crystalYY/pen/ggNjQR
 
-key: value; 冒号之后有空格
-字符串默认不使用引号。如：title: 欢迎来到我的博客
-字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’
-文章包含多个标签
-123tags:">
-<meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example1.jpg">
-<meta property="og:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/github.png">
-<meta property="og:updated_time" content="2017-01-15T03:43:52.599Z">
+主要效果：
+
+最多可选择三项，用户尝试选择第四项时，多选框变为disabled禁用状态
+按照用户点击的顺序实时给出已选择的多选框所对应的序号
+左下方实时提醒用户当前已选择了几项
+
+
+实现思路：
+
+设置一个用来存放已经选定的多选框，即obj.checked=true的value的数组checkedArray">
+<meta property="og:updated_time" content="2017-02-20T13:22:52.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo与github page联合建站过程中踩过的坑">
-<meta name="twitter:description" content="截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。
-YAML语法之前没写过配置文件，这是第一次接触YAML，确实简洁强大。
+<meta name="twitter:title" content="原生js实现多选框的排序以及可选个数控制">
+<meta name="twitter:description" content="展示页面： http://codepen.io/crystalYY/pen/ggNjQR
 
-key: value; 冒号之后有空格
-字符串默认不使用引号。如：title: 欢迎来到我的博客
-字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’
-文章包含多个标签
-123tags:">
-<meta name="twitter:image" content="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example1.jpg">
+主要效果：
+
+最多可选择三项，用户尝试选择第四项时，多选框变为disabled禁用状态
+按照用户点击的顺序实时给出已选择的多选框所对应的序号
+左下方实时提醒用户当前已选择了几项
+
+
+实现思路：
+
+设置一个用来存放已经选定的多选框，即obj.checked=true的value的数组checkedArray">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Tully" type="application/atom+xml">
   
@@ -193,57 +202,58 @@ key: value; 冒号之后有空格
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo联合github-page联合建站过程中踩过的坑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-原生js实现多选框的排序以及可选个数控制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo与github page联合建站过程中踩过的坑
+      原生js实现多选框的排序以及可选个数控制
     </h1>
   
 
         
-        <a href="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/" class="archive-article-date">
-  	<time datetime="2017-01-10T08:15:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
+        <a href="/2017/02/20/原生js实现多选框的排序以及可选个数控制/" class="archive-article-date">
+  	<time datetime="2017-02-20T13:20:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>截止到现在，一直以来的愿望总算达成，虽然距离自己最初的心愿–完全手写一个blog还有很长的路要走。</p>
-<h3 id="YAML语法"><a href="#YAML语法" class="headerlink" title="YAML语法"></a>YAML语法</h3><p>之前没写过配置文件，这是第一次接触YAML，确实简洁强大。</p>
+        <p><strong>展示页面：</strong> <a href="http://codepen.io/crystalYY/pen/ggNjQR" target="_blank" rel="external">http://codepen.io/crystalYY/pen/ggNjQR</a></p>
+<hr>
+<p><strong>主要效果：</strong></p>
 <ol>
-<li>key: value; 冒号之后有空格</li>
-<li>字符串默认不使用引号。如：title: 欢迎来到我的博客</li>
-<li>字符串之中包含空格或特殊字符，需要放在引号之中。如：title: ‘hello world’</li>
-<li><p>文章包含多个标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tags:</div><div class="line">- one</div><div class="line">- two</div></pre></td></tr></table></figure>
-</li>
-<li><p>#表示注释</p>
+<li>最多可选择三项，用户尝试选择第四项时，多选框变为<code>disabled</code>禁用状态</li>
+<li>按照用户点击的顺序实时给出已选择的多选框所对应的序号</li>
+<li>左下方实时提醒用户当前已选择了几项</li>
+</ol>
+<hr>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>设置一个用来存放已经选定的多选框，即<code>obj.checked=true</code>的value的数组<code>checkedArray</code></li>
+<li><strong>效果1实现思路：</strong>通过监听每个<code>input</code>的<code>click</code>事件，如果(if)<code>checkedArray.length</code>大于或等于3并且当前所点击的<code>input</code><strong>在这次点击事件之前为未选择（意思是点击之后为选中状态）</strong>，即<code>checkedArray.length&gt;=3&amp;&amp;currentTarget.checked==true</code>，则设置此次点击无效<code>currentTarget.checked=false</code>,并且通过遍历所有<code>input</code>,将<code>checked==false</code>的设置为禁用状态。<br>(else)除上面已说的情况外的其他情况，则通过判断点击后<code>check==ture</code>还是<code>checked==false</code>分别向<code>checkedArray</code>数组中<code>push</code>当前选中的多选框的<code>value</code>,或者删除数组中和当前取消选中的多选框的<code>value</code>相等的元素。</li>
+<li><strong>效果2实现思路：</strong>遍历所有<code>input</code>,获取对于的<code>value</code>值，使用<code>indexOf()</code>函数来在<code>checkedArray</code>中定位，不返回-1说明已经被选中，<strong>将返回值+1</strong>后填入之前写好的<code>span</code>标签内</li>
+<li><strong>效果3实现思路</strong>：获取<code>checkedArray.length</code></li>
+</ol>
+<hr>
+<p><strong>需要注意的点</strong></p>
+<ol>
+<li>考虑到input可能会很多，所以使用了事件委托，把<code>click</code>事件绑定在<code>input</code>的父级上，通过<code>event target</code>的使用完成<code>input</code>上点击事件的绑定</li>
+<li><p>因为input和label标签相互依赖，所以会触发两次点击事件，我们只需要<code>input</code>上的点击事件，防止<code>label</code>的干扰，可以通过判断是否为<code>label</code>,如果是就返回的方法来实现，即</p>
+<p> if(tar.nodeName.toLowerCase()==’label’){</p>
+<pre><code>return;
+</code></pre><p> }</p>
 </li>
 </ol>
-<p>具体YAML语法请看<a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/07/yaml.html?f=tt</a></p>
-<a id="more"></a>
-<h3 id="hexo中相对路径引用的标签插件"><a href="#hexo中相对路径引用的标签插件" class="headerlink" title="hexo中相对路径引用的标签插件"></a>hexo中相对路径引用的标签插件</h3><p>当时有疑问的主要是 <code>{ % asset_img slug [title] %}</code><br>标签插件,不知道到底应该把图片放在哪里，路径到底是以哪个为根路径。</p>
-<p>官方文档中的解释如下</p>
-<blockquote>
-<p>当你打开文章资源文件夹功能后，你把一个 example.jpg<br>图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 <code>![](/example.jpg)</code> ，它将 不会 出现在首页上。（但是它会在文章中按你期待的方式工作）<br>正确的引用图片方式是使用下列的标签插件而不是 markdown ： <code>{ % asset_img example.jpg This is an example image %}</code><br>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
-</blockquote>
-<p>现在再看其实很清晰，文档甚至怕使用者看不懂图片的名称都写出来了，然而还是有我这种人不仔细看没看懂。。</p>
-<p>资源文件夹指的是当你把资源文件管理功能打开后，即设置<br><figure class="highlight plain"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">post_asset_folder: true</div><div class="line"></div></pre></td></tr></table></figure><br>每次你通过<code>hexo new article-title</code>命令新建文章时，相对应的会生成一个和文章名称相同的文件夹，这个文件夹就是所谓的<strong>资源文件夹</strong>，而根路径也就是这个文件夹。比如<br> <code>{ % asset_img example.jpg This is an example image %}</code><br>这个<code>example.jpg</code>就是直接放在资源文件夹里</p>
-<img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/example1.jpg" alt="This is an example image" title="This is an example image">
-<h3 id="github上出现灰色文件"><a href="#github上出现灰色文件" class="headerlink" title="github上出现灰色文件"></a>github上出现灰色文件</h3><p>对于这个问题，我找到了原因但依然没有很好地解决办法。</p>
-<p>问题产生的原因是由于我作死的直接从原作者的github上pull下来了yilia主题，并且pull的当前文件夹就是hexo的themes文件夹，导致yilia文件夹本身就是一个本身已经初始化并且有远成仓库的本地Git仓库。</p>
-<p>用<code>git remote show origin</code>来查看远程仓库信息，也是yilia作者的Git远程仓库地址。虽然我后来又在blog文件夹（包含yilia文件夹）init了一个Git本地仓库，并和我github上的远程仓库相连，但我依然得不到yilia文件夹的编辑权，除非到yilia文件夹下，但就算你此时push也是push到yilia作者的仓库里。</p>
-<p>查了一些资料，说是yilia这种情况就属于blog的子模块了，子模块是什么鬼，第一次听说。<br><a href="https://segmentfault.com/a/1190000003076028" target="_blank" rel="external">子模块资料</a><br>但我在yilia文件夹里搜索了一下，并没有.gitmodules和 pod-library 文件，所以这应该不是子模块。</p>
-<p>那是什么，我又找了一通资料。觉得主要原因是yilia本身也是一个初始化的Git仓库。那取消初始化会不会就正常了，可以执行<code>git rm rf .git</code>或直接手动删除.git文件。发现yilia文件确实和blog保持了一致，远程仓库和本地分支都一致，但奈何github上依然是灰色文件不能操作。。</p>
-<p><strong>好吧，最后我无奈的把yilia先复制到桌面上，然后<code>add commit push</code>，再把桌面上的yilia恭恭敬敬的又请回了themes文件夹，接着<code>add commit push</code>，再去看github，竟然可操作了。。。</strong></p>
-<img src="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/github.png" alt="灰色文件可处理结果" title="灰色文件可处理结果">
-<p><strong>简单粗暴但有效。</strong></p>
-<p>最后提醒一句：再下载主题的时候别再为了一时方便直接pull主题到博客本身的themes文件夹下了，后续造成的不方便不知道要花费多少时间。当然如果你不打算把hexo的所有配置文件都上传到GitHub上，那倒没太大问题，不过万一哪天你电脑突然挂了呢。。。还得重新再搭建一次，所以还是尽早备份吧</p>
+<hr>
+<p><strong>可以改进的地方</strong></p>
+<ol>
+<li>循环太多，遍历了很多次input，内存占用大</li>
+<li>如果把整个功能封装，可以减少整个项目的代码量，如果是需要做一个问卷系统的话</li>
+</ol>
 
       
 
@@ -292,7 +302,7 @@ key: value; 冒号之后有空格
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -348,7 +358,7 @@ key: value; 冒号之后有空格
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://tinyfirefly.com/2017/02/20/原生js实现多选框的排序以及可选个数控制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +372,9 @@ key: value; 冒号之后有空格
   
 <nav id="article-nav">
   
-    <a href="/2017/02/20/原生js实现多选框的排序以及可选个数控制/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          原生js实现多选框的排序以及可选个数控制
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/09/信息的不完全导致安全感的缺失/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">信息的不完全导致安全感的缺失</div>
+    <a href="/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo与github page联合建站过程中踩过的坑</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +388,7 @@ key: value; 冒号之后有空格
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hexo联合github-page联合建站过程中踩过的坑" data-title="hexo与github page联合建站过程中踩过的坑" data-url="http://tinyfirefly.com/2017/01/10/hexo联合github-page联合建站过程中踩过的坑/"></div>
+	<div class="ds-thread" data-thread-key="原生js实现多选框的排序以及可选个数控制" data-title="原生js实现多选框的排序以及可选个数控制" data-url="http://tinyfirefly.com/2017/02/20/原生js实现多选框的排序以及可选个数控制/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
