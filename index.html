@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>展示页面：</strong> <a href="http://codepen.io/crystalYY/pen/ggNjQR" target="_blank" rel="external">http://codepen.io/crystalYY/pen/ggNjQR</a></p>
+        <p><strong>展示页面：</strong> <a href="http://codepen.io/crystalYY/pen/ggNjQR">http://codepen.io/crystalYY/pen/ggNjQR</a></p>
 <hr>
 <p><strong>主要效果：</strong></p>
 <ol>
@@ -198,31 +198,10 @@
 <li>按照用户点击的顺序实时给出已选择的多选框所对应的序号</li>
 <li>左下方实时提醒用户当前已选择了几项</li>
 </ol>
-<hr>
-<p><strong>实现思路：</strong></p>
-<ol>
-<li>设置一个用来存放已经选定的多选框，即<code>obj.checked=true</code>的value的数组<code>checkedArray</code></li>
-<li><strong>效果1实现思路：</strong>通过监听每个<code>input</code>的<code>click</code>事件，如果(if)<code>checkedArray.length</code>大于或等于3并且当前所点击的<code>input</code><strong>在这次点击事件之前为未选择（意思是点击之后为选中状态）</strong>，即<code>checkedArray.length&gt;=3&amp;&amp;currentTarget.checked==true</code>，则设置此次点击无效<code>currentTarget.checked=false</code>,并且通过遍历所有<code>input</code>,将<code>checked==false</code>的设置为禁用状态。<br>(else)除上面已说的情况外的其他情况，则通过判断点击后<code>check==ture</code>还是<code>checked==false</code>分别向<code>checkedArray</code>数组中<code>push</code>当前选中的多选框的<code>value</code>,或者删除数组中和当前取消选中的多选框的<code>value</code>相等的元素。</li>
-<li><strong>效果2实现思路：</strong>遍历所有<code>input</code>,获取对于的<code>value</code>值，使用<code>indexOf()</code>函数来在<code>checkedArray</code>中定位，不返回-1说明已经被选中，<strong>将返回值+1</strong>后填入之前写好的<code>span</code>标签内</li>
-<li><strong>效果3实现思路</strong>：获取<code>checkedArray.length</code></li>
-</ol>
-<hr>
-<p><strong>需要注意的点</strong></p>
-<ol>
-<li>考虑到input可能会很多，所以使用了事件委托，把<code>click</code>事件绑定在<code>input</code>的父级上，通过<code>event target</code>的使用完成<code>input</code>上点击事件的绑定</li>
-<li><p>因为input和label标签相互依赖，所以会触发两次点击事件，我们只需要<code>input</code>上的点击事件，防止<code>label</code>的干扰，可以通过判断是否为<code>label</code>,如果是就返回的方法来实现，即</p>
-<p> if(tar.nodeName.toLowerCase()==’label’){</p>
-<pre><code>return;
-</code></pre><p> }</p>
-</li>
-</ol>
-<hr>
-<p><strong>可以改进的地方</strong></p>
-<ol>
-<li>循环太多，遍历了很多次input，内存占用大</li>
-<li>如果把整个功能封装，可以减少整个项目的代码量，如果是需要做一个问卷系统的话</li>
-</ol>
-
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <a class="article-more-a" href="/2017/02/20/原生js实现多选框的排序以及可选个数控制/#more">more >></a>
+        
       
 
       
@@ -644,23 +623,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">保研</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">心理学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,7 +635,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">建站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">保研</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
