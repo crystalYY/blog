@@ -26,7 +26,7 @@
 最多可选择三项，用户尝试选择第四项时，多选框变为disabled禁用状态
 按照用户点击的顺序实时给出已选择的多选框所对应的序号
 左下方实时提醒用户当前已选择了几项">
-<meta property="og:updated_time" content="2017-02-21T02:49:53.946Z">
+<meta property="og:updated_time" content="2017-02-21T03:07:28.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js实现多选框的排序以及可选个数控制">
 <meta name="twitter:description" content="展示页面： http://codepen.io/crystalYY/pen/ggNjQR
@@ -215,7 +215,9 @@
 <li>按照用户点击的顺序实时给出已选择的多选框所对应的序号</li>
 <li>左下方实时提醒用户当前已选择了几项</li>
 </ol>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><strong>实现思路：</strong></p>
+<hr>
+<a id="more"></a>
+<p><strong>实现思路：</strong></p>
 <ol>
 <li>设置一个用来存放已经选定的多选框，即<code>obj.checked=true</code>的value的数组<code>checkedArray</code></li>
 <li><strong>效果1实现思路：</strong>通过监听每个<code>input</code>的<code>click</code>事件，如果(if)<code>checkedArray.length</code>大于或等于3并且当前所点击的<code>input</code><strong>在这次点击事件之前为未选择（意思是点击之后为选中状态）</strong>，即<code>checkedArray.length&gt;=3&amp;&amp;currentTarget.checked==true</code>，则设置此次点击无效<code>currentTarget.checked=false</code>,并且通过遍历所有<code>input</code>,将<code>checked==false</code>的设置为禁用状态。<br>(else)除上面已说的情况外的其他情况，则通过判断点击后<code>check==ture</code>还是<code>checked==false</code>分别向<code>checkedArray</code>数组中<code>push</code>当前选中的多选框的<code>value</code>,或者删除数组中和当前取消选中的多选框的<code>value</code>相等的元素。</li>
